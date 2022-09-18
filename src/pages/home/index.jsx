@@ -19,7 +19,7 @@ export default class Index extends Component {
   render() {
     return (
       <View className='index'>
-        <Text className={style.p-title}>Hello World!</Text>
+        <Text className={style["p-title"]}>Hello World!</Text>
         <Button color='success'>success</Button>
       </View>
     )
