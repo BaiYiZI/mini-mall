@@ -43,6 +43,19 @@ const config = {
       }
     }
   },
+  weapp: {
+    module: {
+      postcss: {
+        cssModules: {
+          enable: true,
+          config: {
+            namingPattern: 'module',
+            generateScopedName: '[name]__[local]___[hash:base64:5]'
+          }
+        }
+      }
+    }
+  },
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
