@@ -13,7 +13,7 @@ export default async (url, data = {}, method = "GET") => {
     );
   }
 
-  return Taro.request({
+  return await Taro.request({
     url: Dest,
     data,
     header: {
