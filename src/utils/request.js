@@ -2,20 +2,20 @@ import Taro from "@tarojs/taro";
 import { options } from "@tarojs/taro-h5";
 import { BaseUrl, OnConsole } from "../config/service";
 
-export default async (url, data = {}, method = "GET") => {
+export default async (url, payload = {}, method = "GET") => {
   const Dest = BaseUrl + url;
 
   if (OnConsole) {
     console.log(
       `${new Date().toLocaleString()} dest: ${Dest} data: ${JSON.stringify(
-        options.data
+        options.payload
       )}`
     );
   }
 
   return await Taro.request({
     url: Dest,
-    data,
+    payload,
     header: {
       "Content-Type": "application/json"
     },
