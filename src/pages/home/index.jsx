@@ -1,27 +1,49 @@
-import { Component } from 'react'
-import { View, Text } from '@tarojs/components'
+import { Component } from "react";
+import Taro from "@tarojs/taro";
+import { View } from "@tarojs/components";
 
-import style from "../../styles/global.module.less"
-import { Button } from "@taroify/core"
+import { getBanner } from "../../service/config";
 
+import style from "./index.module.less";
+import { Image } from "@taroify/core";
 export default class Index extends Component {
+  state = {
+    banner: ""
+  };
 
-  componentWillMount() { }
+  componentWillMount() {}
 
-  componentDidMount() { }
+  componentDidMount() {
+    this.loading();
+  }
 
-  componentWillUnmount() { }
+  componentWillUnmount() {}
 
-  componentDidShow() { }
+  componentDidShow() {}
 
-  componentDidHide() { }
+  componentDidHide() {}
+
+  async loading() {
+    Taro.showLoading({
+      title: "Loading"
+    });
+
+    const banner = await getBanner();
+
+    this.setState({
+      banner: banner[0]
+    });
+
+    Taro.hideLoading();
+  }
 
   render() {
+    let banner = this.state.banner;
+
     return (
-      <View className='index'>
-        <Text className={style["p-title"]}>Hello World!</Text>
-        <Button color='success'>success</Button>
+      <View className="index">
+        <Image className={style["banner"]} src={banner} mode="hightFix" />
       </View>
-    )
+    );
   }
 }
