@@ -1,4 +1,5 @@
 @main-color: #F42121;
+@white: #FFFFFF;
 @secondary-color: #7728F5;
 @adorn-color: #3399FF;
 @black: #333333;
@@ -9,17 +10,36 @@
 @border-radius-normal: 16px;
 @border-radius-min: 8px;
 
-@margin-big: 32px;
+@margin-big: 28px;
 @margin-normal: 16px;
-@margin-normal: 8px;
+@margin-min: 8px;
+
+@padding-big: 32px;
+@padding-normal: 16px;
+@padding-min: 8px;
 
 @text-highlight-color: @main-color;
 @text-width-bold: bolder;
 @text-width-normal: normal;
 
+@shadown: 1.5px 1.7px 4px rgba(0, 0, 0, 0.11),
+    2.9px 3.2px 7.8px rgba(0, 0, 0, 0.066),
+    4.3px 4.8px 11.5px rgba(0, 0, 0, 0.049),
+    5.8px 6.5px 15.7px rgba(0, 0, 0, 0.042),
+    8.4px 9.4px 22.7px rgba(0, 0, 0, 0.036),
+    17px 19px 46px rgba(0, 0, 0, 0.026);
+
 .p-title {
-    font-size: "1.2rem";
+    font-size: 1.2rem;
+    line-height: 1.4rem;
     color: @black;
+    font-weight: @text-width-bold;
+}
+
+.p-price {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    color: @text-highlight-color;
     font-weight: @text-width-bold;
 }
 
@@ -33,4 +53,14 @@
     font-size: "0.8rem";
     color: @ashen;
     font-weight: @text-width-normal;
+}
+
+:export {
+    main-color: @main-color;
+    white: @white;
+    secondary-color: @secondary-color;
+    adorn-color: @adorn-color;
+    black: @black;
+    gary: @gary;
+    ashen: @ashen;
 }
