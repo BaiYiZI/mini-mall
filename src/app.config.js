@@ -12,7 +12,7 @@ export default defineAppConfig({
   window: {
     backgroundTextStyle: "light",
     navigationBarBackgroundColor: "#F42121",
-    navigationBarTextStyle: "white"
+    navigationBarTextStyle: "white",
   },
   tabBar: {
     color: "#999999",
