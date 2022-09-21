@@ -13,6 +13,9 @@ export default defineAppConfig({
     backgroundTextStyle: "light",
     navigationBarBackgroundColor: "#F42121",
     navigationBarTextStyle: "white",
+    enablePullDownRefresh: true,
+    backgroundColor: "#EFEFEF",
+    backgroundTextStyle: "light",
   },
   tabBar: {
     color: "#999999",
