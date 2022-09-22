@@ -1,3 +1,7 @@
+import i18n from "./i18n/locales";
+
+const T = new i18n("zh");
+
 export default defineAppConfig({
   pages: [
     "pages/home/index",
@@ -15,7 +19,7 @@ export default defineAppConfig({
     navigationBarTextStyle: "white",
     enablePullDownRefresh: true,
     backgroundColor: "#EFEFEF",
-    backgroundTextStyle: "light",
+    backgroundTextStyle: "light"
   },
   tabBar: {
     color: "#999999",
@@ -24,21 +28,21 @@ export default defineAppConfig({
     list: [
       {
         pagePath: "pages/home/index",
-        text: "首页",
+        text: T.text().home.home,
         iconPath: "./public/icon/home.png",
-        selectedIconPath:  "./public/icon/home-select.png"
+        selectedIconPath: "./public/icon/home-select.png"
       },
       {
         pagePath: "pages/cart/index",
-        text: "购物车",
+        text: T.text().cart.cart,
         iconPath: "./public/icon/cart.png",
-        selectedIconPath:  "./public/icon/cart-select.png"
+        selectedIconPath: "./public/icon/cart-select.png"
       },
       {
         pagePath: "pages/user/index",
-        text: "我的",
+        text: T.text().user.user,
         iconPath: "./public/icon/user.png",
-        selectedIconPath:  "./public/icon/user-select.png"
+        selectedIconPath: "./public/icon/user-select.png"
       }
     ],
     position: "bottom"
