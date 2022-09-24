@@ -1,0 +1,78 @@
+@import "../../../styles/global.module.less";
+
+.icon {
+  color: @main-color;
+}
+
+.divider {
+  border-color: @gary;
+  width: calc(100vw - @margin-normal - @padding-big - 64px - @margin-normal - @padding-big - @margin-normal);
+  margin-left: calc(32px + 32px + @margin-normal);
+}
+
+.state-box {
+  height: 20.9vh;
+  border-radius: @border-radius-big;
+  background-color: @main-color;
+  box-shadow: @shadown;
+  margin-top: @margin-normal;
+  margin-left: @margin-normal;
+  margin-right: @margin-normal;
+}
+
+.state-text {
+  .p-title;
+  color: @white;
+  font-size: 1.6rem;
+}
+
+.title {
+  margin-top: @margin-big;
+  margin-left: @margin-normal;
+}
+
+.title-text {
+  .p-title;
+}
+
+.card {
+  margin-top: @margin-normal;
+  margin-left: @margin-normal;
+  margin-right: @margin-normal;
+  background-color: @white;
+  padding: @padding-big;
+  box-shadow: @shadown;
+  border-radius: @border-radius-normal;
+}
+
+.body-text {
+  font-size: 0.8rem;
+}
+
+.retouch-text {
+  font-size: 0.4rem;
+  color: @gary;
+  margin-top: @margin-big;
+}
+
+.left-space {
+  margin-left: @margin-normal;
+}
+
+.order-left-space {
+  margin-left: @margin-normal * 5;
+}
+
+.bottom-left-space {
+  margin-left: 64px + @margin-normal;
+}
+
+.bottom-card {
+  margin-top: @margin-normal;
+  background-color: @white;
+  padding: @padding-big;
+  padding-left: @padding-big + @margin-normal;
+  padding-right: @padding-big + @margin-normal;
+  box-shadow: @shadown;
+  border-radius: @border-radius-normal;
+}
