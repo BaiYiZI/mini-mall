@@ -51,15 +51,15 @@ export default class Index extends Component {
     let banner = await getBanner();
     let kinds = await getKinds();
 
-    let currentKind = kinds[0].kind;
-    let currentKindChildren = kinds[0].children[0];
+    let currentKind = kinds.data[0].kind;
+    let currentKindChildren = kinds.data[0].children[0];
 
     let goodsInfo = await getGoodsInfoByKind(currentKindChildren);
 
     this.setState({
-      banner: banner[0],
-      goodsInfo,
-      kinds,
+      banner: banner.data[0],
+      goodsInfo: goodsInfo.data,
+      kinds: kinds.data,
       currentKind,
       currentKindChildren,
       loading: false
@@ -80,11 +80,11 @@ export default class Index extends Component {
   }
 
   async changeKindChildren(value) {
-    const goodsInfo = await getGoodsInfoByKind(value);
+    let goodsInfo = await getGoodsInfoByKind(value);
 
     this.setState({
       currentKindChildren: value,
-      goodsInfo
+      goodsInfo: goodsInfo.data
     });
   }
 
@@ -104,7 +104,11 @@ export default class Index extends Component {
         })[0]
         .children.map(item => {
           return (
-            <Tabs.TabPane key={item} value={item} title={item}></Tabs.TabPane>
+            <Tabs.TabPane
+              key={item}
+              value={item}
+              title={item}
+            ></Tabs.TabPane>
           );
         });
 
@@ -182,6 +186,7 @@ export default class Index extends Component {
                 <Tabs
                   animated
                   swipeable
+                  ellipsis={false}
                   value={this.state.currentKindChildren}
                   defaultValue={this.state.currentKindChildren}
                   onChange={value => this.changeKindChildren(value)}
