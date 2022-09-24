@@ -14,7 +14,7 @@ export default class GoodsCard extends Component {
 
   render() {
     return (
-      <Flex direction="column" gutter="24" className={style.root}>
+      <Flex direction="column" gutter="24" className={style.root} onClick={this.props.onClick}>
         <Flex.Item
           justify="center"
           align="center"
