@@ -15,31 +15,36 @@ export default async (url, payload = {}, method = "GET") => {
 
   return await Taro.request({
     url: Dest,
-    payload,
+    data: payload,
     header: {
       "Content-Type": "application/json"
     },
-    method: method
-  }).then(res => {
-    const { statusCode, data } = res;
+    method: method,
+    success: res => {
+      const { statusCode, data } = res;
 
-    if (statusCode == 200) {
-      if (OnConsole) {
-        console.log(
-          `${new Date().toLocaleString()} dest: ${Dest} res: ${JSON.stringify(
-            data
-          )}`
-        );
+      if (statusCode == 200) {
+        if (OnConsole) {
+          console.log(
+            `${new Date().toLocaleString()} dest: ${Dest} res: ${JSON.stringify(
+              data
+            )}`
+          );
+        }
+      } else {
+        Taro.showToast({
+          title: "网络错误",
+          icon: "error"
+        });
+
+        return statusCode;
       }
-
-      return data;
-    } else {
+    },
+    fail: () => {
       Taro.showToast({
-        title: "网络错误",
+        title: "请求失败",
         icon: "error"
       });
-
-      return statusCode;
     }
   });
 };
