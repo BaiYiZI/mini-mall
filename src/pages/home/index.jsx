@@ -4,7 +4,7 @@ import { View } from "@tarojs/components";
 
 import GoodsCard from "../../components/card/goods/index";
 
-import { getBanner, getKinds } from "../../service/config";
+import { getBanner, getKinds } from "../../service/home";
 import { getGoodsInfoByKind } from "../../service/goods";
 
 import style from "./index.module.less";
@@ -88,6 +88,12 @@ export default class Index extends Component {
     });
   }
 
+  navigateTo(id) {
+    Taro.navigateTo({
+      url: "/pages/detail/goods/index?goodsId=" + id
+    });
+  }
+
   render() {
     let loading = this.state.loading;
     let banner = "";
@@ -104,11 +110,7 @@ export default class Index extends Component {
         })[0]
         .children.map(item => {
           return (
-            <Tabs.TabPane
-              key={item}
-              value={item}
-              title={item}
-            ></Tabs.TabPane>
+            <Tabs.TabPane key={item} value={item} title={item}></Tabs.TabPane>
           );
         });
 
@@ -137,6 +139,7 @@ export default class Index extends Component {
             title={item.title}
             img={item.img}
             price={item.price}
+            onClick={() => this.navigateTo(item.id)}
           />
         );
       });
@@ -171,7 +174,11 @@ export default class Index extends Component {
           </>
         ) : (
           <>
-            <Image className={style["banner"]} src={banner} mode="hightFix" />
+            <Image
+              className={style["banner"]}
+              src={banner}
+              mode="hightFix"
+            />
             <Flex direction="row" align="center" className={style["tab-bar"]}>
               <Flex.Item
                 span="5"
