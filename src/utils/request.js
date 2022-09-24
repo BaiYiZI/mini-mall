@@ -1,5 +1,4 @@
 import Taro from "@tarojs/taro";
-import { options } from "@tarojs/taro-h5";
 import { BaseUrl, OnConsole } from "../config/service";
 
 export default async (url, payload = {}, method = "GET") => {
@@ -8,7 +7,7 @@ export default async (url, payload = {}, method = "GET") => {
   if (OnConsole) {
     console.log(
       `${new Date().toLocaleString()} dest: ${Dest} data: ${JSON.stringify(
-        options.payload
+        payload
       )}`
     );
   }
@@ -36,8 +35,6 @@ export default async (url, payload = {}, method = "GET") => {
           title: "网络错误",
           icon: "error"
         });
-
-        return statusCode;
       }
     },
     fail: () => {
