@@ -1,0 +1,128 @@
+@import "../../../styles/global.module.less";
+
+.page {
+    padding-bottom: @padding-big;
+}
+
+.swiper {
+    width: 100vw;
+    height: 100vw;
+    background-color: burlywood;
+}
+
+.custom-indicator {
+    position: absolute;
+    right: 5px * 2;
+    bottom: 5px * 2;
+    padding: 2px * 2 5px * 2;
+    font-size: 12px * 2;
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: @border-radius-normal;
+}
+
+.swiper-item {
+    width: 100vw;
+    height: 100vw;
+    background-color: aqua;
+}
+
+.price-box {
+    height: 10vh;
+    width: 100vw;
+    background: linear-gradient(120deg, @main-color 59%, @secondary-color 90%);
+}
+
+.price {
+    display: inline-block;
+    line-height: 6vh;
+    border-radius: @border-radius-big;
+    background-color: @white;
+    text-align: center;
+    padding: @padding-normal;
+    margin-left: @margin-big;
+    .p-price;
+}
+
+.stock {
+    .p-secondary;
+    // text-align: end;
+    color: @white;
+    padding-right: @padding-normal;
+    margin-top: 4vh;
+}
+
+.title-box {
+    height: auto;
+    width: 100vw;
+    background-color: @white;
+    margin-bottom: @margin-big;
+}
+
+.title {
+    .p-title;
+    display: inline-block;
+    text-align: left;
+    padding: @padding-normal;
+    margin-left: @margin-big;
+    background-color: @white;
+}
+
+.goods-detail {
+    background-color: #FFFFFF;
+    padding-top: @padding-big * 2;
+    min-height: 60vh;
+}
+
+.goods-detail-list {
+    margin-left: @margin-big;
+    margin-right: @margin-big;
+    margin-bottom: @margin-min;
+    border-radius: @border-radius-normal;
+    padding-top: @padding-normal;
+    padding-bottom: @padding-normal;
+    background: linear-gradient(to bottom, @main-color -30%, rgba(0, 145, 255, 0) 100%);
+}
+
+.goods-detail-item {
+    margin-top: @margin-normal;
+    margin-bottom: @margin-normal;
+}
+
+.divider-title {
+    .p-normal;
+    color: @black;
+    font-weight: @text-width-bold;
+    border-color: @main-color;
+    padding: 0 24vw;
+}
+
+.bottom-bar {
+    height: 10vh;
+    width: 100vw;
+    background-color: @white;
+}
+
+.bottom-item {
+    .p-secondary;
+    padding-top: 1.2vh;
+    height: 100%;
+}
+
+.bottom-button-cart {
+    margin-top: 0.6vh;
+    width: 100%;
+    background: @secondary-color;
+    border-color: @main-color;
+    color: @white;
+    border-radius: @border-radius-big 0 0 @border-radius-big;
+}
+
+.bottom-button-pay {
+    margin-top: 0.6vh;
+    width: 100%;
+    background: @main-color;
+    border-color: @main-color;
+    color: @white;
+    border-radius: 0 @border-radius-big @border-radius-big 0;
+}
