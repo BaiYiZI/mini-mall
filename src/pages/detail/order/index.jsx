@@ -123,7 +123,10 @@ export default class Index extends Component {
           price={890}
           number={10}
         ></ShoppingGoodsCard>
-        <Sticky position="bottom">
+
+        <View className={style["placeholder"]}></View>
+
+        <View>
           <Flex
             className={style["bottom-card"]}
             direction="column">
@@ -195,7 +198,6 @@ export default class Index extends Component {
                         <Flex.Item>
                           <Text>实付金额:</Text>
                         </Flex.Item>
-                        <Flex.Item style={{ height: "8px" }}></Flex.Item>
                       </Flex>
                     </Flex.Item>
                     <Flex.Item>
@@ -206,7 +208,6 @@ export default class Index extends Component {
                           <CashBackRecord className={style["icon"]} />
                           <Text> 100</Text>
                         </Flex.Item>
-                        <Flex.Item style={{ height: "8px" }}></Flex.Item>
                       </Flex>
                     </Flex.Item>
                   </Flex>
@@ -214,7 +215,7 @@ export default class Index extends Component {
               </Flex>
             </Flex.Item>
           </Flex>
-        </Sticky>
+        </View>
       </View>
     )
   }
