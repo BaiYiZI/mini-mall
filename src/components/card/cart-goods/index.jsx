@@ -82,7 +82,7 @@ export default class ShoppingGoodsCard extends Component {
                 style["p-price"]
               ]}
             >
-              {price}
+              {number === undefined ? price : price * number}
             </Text>
             {stepper === true ? (
               <Stepper

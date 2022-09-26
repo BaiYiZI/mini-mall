@@ -1,0 +1,164 @@
+@import "../../styles/global.module.less";
+
+.page {
+    display: flex;
+    flex-direction: column;
+}
+
+.vCard {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin-top: @margin-big;
+    height: 24vh;
+    width: 100vw;
+}
+
+.title {
+    display: flex;
+    width: 100vw;
+    margin-bottom: 8px;
+    padding-left: 2vw;
+}
+
+.word {
+    display: flex;
+    margin-bottom: @margin-min;
+    justify-content: flex-start;
+    .p-title;
+}
+
+.address {
+    display: flex;
+    flex-direction: column;
+    height: 19.6vh;
+    width: 95.7vw;
+    background-color: @white;
+    box-shadow: @shadown;
+    border-radius: @border-radius-min;
+}
+
+.location {
+    width: 95.7vw;
+    height: 5.6vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.loc-icons {
+    display: flex;
+    padding-left: 24px;
+    color: #F42121;
+}
+
+.Approximate-location {
+    display: flex;
+    padding-left: 2.2vw;
+    font-size: 0.8rem;
+    color: @ashen;
+    font-weight: @text-width-normal;
+}
+
+.shipping-address {
+    display: flex;
+    flex-direction: row;
+    padding-left: 4.8vw;
+    width: 95.7vw;
+    height: 2vh;
+    font-size: 0.9rem;
+}
+
+.details {
+    color: @ashen;
+}
+
+.consignee {
+    display: flex;
+    margin-top: 2vh;
+    padding-left: 8.5vw;
+    width: 95.7vw;
+    height: 2vh;
+    font-size: 0.9rem;
+}
+
+.Mobile-Phone{
+    .shipping-address;
+    margin-top: 2vh;
+}
+
+.quantity {
+    display: flex;
+    width: 95.7vw;
+    height: 3vh;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 2vh;
+    padding-left: 2vw;
+    .p-title;
+}
+
+.Order-Confirmation-sticky {
+    position: fixed;
+    bottom: 0px;
+}
+
+.Order-Confirmation {
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    width: 100vw;
+    height: 9.8vh;
+    background-color: white;
+}
+
+.Amount {
+    display: flex;
+    padding-left: 4.2vw;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    font-weight: @text-width-bold;
+}
+
+.sum {
+    display: flex;
+    .p-price;
+}
+
+.frame {
+    display: flex;
+    width: 100vw;
+    height: 30vh;
+    justify-content: center;
+}
+
+.prompt {
+    display: flex;
+    align-items:center;
+    margin-top: @margin-big;
+    width: 95.7vw;
+    height: 8vh;
+    margin-top: 2vh;
+    margin-bottom: 20vh;
+    background-color: #fa4f5249;
+    box-shadow:
+    1.5px 1.7px 4px rgba(206, 48, 48, 0.281),
+    2.9px 3.2px 7.8px rgba(209, 34, 34, 0.24),
+    4.3px 4.8px 11.5px rgba(224, 23, 23, 0.205),
+    5.8px 6.5px 15.7px rgba(184, 28, 28, 0.205),
+    8.4px 9.4px 22.7px rgba(219, 33, 33, 0.233),
+    17px 19px 46px rgba(226, 33, 33, 0.178);
+    border-radius: @border-radius-min;
+    .p-secondary;
+}
+
+.p-prompt {
+    padding-left: 5vw;
+}
+
+.confirmButton {
+    padding-right: 3vw;
+}
