@@ -10,6 +10,7 @@ import {
   Backdrop,
   Space,
   Button,
+  Empty
 } from "@taroify/core";
 
 import { getBanner, getKinds } from "../../service/home";
@@ -22,11 +23,12 @@ export default class Index extends Component {
   state = {
     banner: "",
     goodsInfo: [],
-    loading: true,
     kinds: [],
     currentKind: "",
     currentKindChildren: "",
-    open: false
+    open: false,
+    loading: true,
+    loadingFaild: false
   };
 
   componentDidMount() {
@@ -47,22 +49,31 @@ export default class Index extends Component {
       title: "Loading"
     });
 
-    let banner = await getBanner();
-    let kinds = await getKinds();
+    try {
+      let banner = await getBanner();
+      let kinds = await getKinds();
 
-    let currentKind = kinds.data[0].kind;
-    let currentKindChildren = kinds.data[0].children[0];
+      let currentKind = kinds.data[0].kind;
+      let currentKindChildren = kinds.data[0].children[0];
 
-    let goodsInfo = await getGoodsInfoByKind(currentKindChildren);
+      let goodsInfo = await getGoodsInfoByKind(currentKindChildren);
 
-    this.setState({
-      banner: banner.data[0],
-      goodsInfo: goodsInfo.data,
-      kinds: kinds.data,
-      currentKind,
-      currentKindChildren,
-      loading: false
-    });
+      this.setState({
+        banner: banner.data[0],
+        goodsInfo: goodsInfo.data,
+        kinds: kinds.data,
+        currentKind,
+        currentKindChildren,
+        loading: false
+      });
+    } catch (error) {
+      console.log(error);
+
+      this.setState({
+        loadingFaild: true,
+        loading: false
+      });
+    }
 
     Taro.hideLoading();
   }
@@ -95,12 +106,13 @@ export default class Index extends Component {
 
   render() {
     let loading = this.state.loading;
+    let loadingFaild = this.state.loadingFaild;
     let banner = "";
     let goodsList = [];
     let tabs = [];
     let kindButtons = [];
 
-    if (!loading) {
+    if (!loading && !loadingFaild) {
       banner = this.state.banner;
 
       tabs = this.state.kinds
@@ -152,7 +164,14 @@ export default class Index extends Component {
 
     return (
       <View className="index">
-        {this.state.loading ? (
+        {loadingFaild ? (
+          <Empty>
+            <Empty.Image src="error" />
+            <Empty.Description>
+              网络错误,请检查网络后下拉刷新页面。
+            </Empty.Description>
+          </Empty>
+        ) : loading ? (
           <>
             <Flex
               direction="column"
@@ -177,6 +196,8 @@ export default class Index extends Component {
               className={style["banner"]}
               src={banner}
               mode="hightFix"
+              placeholder="加载中..."
+              fallback="加载失败"
             />
             <Flex direction="row" align="center" className={style["tab-bar"]}>
               <Flex.Item
