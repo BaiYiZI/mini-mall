@@ -43,8 +43,8 @@ export default class Index extends Component {
         id: temp.id,
         img: temp.img,
         kind: temp.kind,
-        number: temp.number,
-        price: temp.price,
+        number: parseInt(temp.number),
+        price: parseInt(temp.price * 100),
         title: temp.title,
         select: false
       });
@@ -73,7 +73,16 @@ export default class Index extends Component {
   setBottomeCircle(value) {
     this.state.cardData.map(val => (val.select = !this.state.bottomeCircle));
     this.reverse(value);
-    console.log("全选");
+  }
+
+  settlementNumber() {
+    let number = 0;
+    for (let i of this.state.cardData) {
+      if (i.select) {
+        number += i.price * i.number;
+      }
+    }
+    return number / 100;
   }
 
   render() {
@@ -92,10 +101,20 @@ export default class Index extends Component {
     );
     const settlementPrice = (
       <>
-        <Text className={style["pages-cart-bottom-settlement-right-price"]}>
-          8923
+        <Text
+          className={[
+            style["pages-cart-bottom-settlement-right-price"],
+            style["p-price"]
+          ]}
+        >
+          {this.settlementNumber()}
         </Text>
-        <Text className={style["pages-cart-bottom-settlement-right-symbol"]}>
+        <Text
+          className={[
+            style["pages-cart-bottom-settlement-right-symbol"],
+            style["p-price"]
+          ]}
+        >
           ¥
         </Text>
       </>
@@ -155,7 +174,7 @@ export default class Index extends Component {
               src={val.img}
               details={val.kind}
               number={val.number}
-              price={val.price * val.number}
+              price={(val.price * val.number) / 100}
               picker={true}
               stepper={true}
             />

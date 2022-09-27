@@ -173,7 +173,7 @@ module.exports = () => {
         img:
           "https://cdn.nlark.com/yuque/0/2022/jpeg/660331/1663757934742-assets/web-upload/8a6e7345-a2b3-48b8-8421-f54b99883d63.jpeg",
         price: "17.8",
-        number: ""
+        number: "0"
       },
       {
         id: "1000013",
@@ -182,7 +182,7 @@ module.exports = () => {
         img:
           "https://cdn.nlark.com/yuque/0/2022/jpeg/660331/1663758151970-assets/web-upload/504b6c2b-8dae-4417-ab67-51576955fcd6.jpeg",
         price: "23.3",
-        number: false
+        number: "0"
       },
       {
         id: "1000014",
