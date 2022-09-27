@@ -1,7 +1,7 @@
 import { Component } from "react";
 import Taro from "@tarojs/taro";
 import { View, Text } from "@tarojs/components";
-import { Flex, Divider, Sticky } from "@taroify/core";
+import { Flex, Divider, FixedView } from "@taroify/core";
 import { LocationOutlined, Logistics, ServiceOutlined, CashBackRecord } from "@taroify/icons";
 
 import ShoppingGoodsCard from "../../../components/card/cart-goods/index";
@@ -124,9 +124,9 @@ export default class Index extends Component {
           number={10}
         ></ShoppingGoodsCard>
 
-        <View className={style["placeholder"]}></View>
+        <View style={{ height: "16px" }}></View>
 
-        <View>
+        <FixedView position="bottom" placeholder="true">
           <Flex
             className={style["bottom-card"]}
             direction="column">
@@ -215,7 +215,7 @@ export default class Index extends Component {
               </Flex>
             </Flex.Item>
           </Flex>
-        </View>
+        </FixedView>
       </View>
     )
   }
