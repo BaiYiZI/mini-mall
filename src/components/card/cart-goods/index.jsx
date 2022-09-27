@@ -6,14 +6,11 @@ import style from "./index.module.less";
 export default class ShoppingGoodsCard extends Component {
   constructor(props) {
     super(props);
-    this.circle = false;
   }
 
   circletEvevnt() {
-    const { circleClick } = this.props;
-    this.circle = !this.circle;
-    circleClick(this.circle);
-    this.setState({});
+    const { circleClick, circle } = this.props;
+    circleClick(circle);
   }
 
   stepperEvent(value) {
@@ -22,7 +19,16 @@ export default class ShoppingGoodsCard extends Component {
   }
 
   render() {
-    const { src, title, details, price, picker, stepper, number } = this.props;
+    const {
+      circle,
+      src,
+      title,
+      details,
+      price,
+      picker,
+      stepper,
+      number
+    } = this.props;
     return (
       <View className={style["components-cart-goods"]}>
         {picker && (
@@ -33,7 +39,7 @@ export default class ShoppingGoodsCard extends Component {
             <View
               className={
                 style[
-                  this.circle === false
+                  circle === false
                     ? "cart-goods-unselected"
                     : "cart-goods-selected"
                 ]
@@ -58,13 +64,13 @@ export default class ShoppingGoodsCard extends Component {
             <Text
               className={[
                 style["components-cart-goods-right-details-title"],
-                style["p-title"]
+                style["p-cart-title"]
               ]}
             >
               {title}
             </Text>
             <View className={style["components-cart-goods-right-details-sku"]}>
-              <Text className={style["p-normal"]}>{details}</Text>
+              <Text className={style["p-cart-sku"]}>{details}</Text>
             </View>
           </View>
           <View className={style["components-cart-goods-right-price"]}>
@@ -82,7 +88,7 @@ export default class ShoppingGoodsCard extends Component {
                 style["p-price"]
               ]}
             >
-              {number === undefined ? price : price * number}
+              {number === undefined ? 0 : price}
             </Text>
             {stepper === true ? (
               <Stepper
