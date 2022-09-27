@@ -3,8 +3,8 @@ import { View, Text } from "@tarojs/components";
 import { Button } from "@taroify/core"
 import { LocationOutlined, Checked } from "@taroify/icons"
 
-import style from "./index.module.less";
 import ShoppingGoodsCard from "../../components/card/cart-goods"
+import style from "./index.module.less";
 
 export default class Index extends Component {
     state = { price: 8000000 };

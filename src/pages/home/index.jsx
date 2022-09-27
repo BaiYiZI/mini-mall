@@ -1,13 +1,6 @@
 import { Component } from "react";
 import Taro from "@tarojs/taro";
 import { View } from "@tarojs/components";
-
-import GoodsCard from "../../components/card/goods/index";
-
-import { getBanner, getKinds } from "../../service/home";
-import { getGoodsInfoByKind } from "../../service/goods";
-
-import style from "./index.module.less";
 import {
   Image,
   Flex,
@@ -18,6 +11,12 @@ import {
   Space,
   Button,
 } from "@taroify/core";
+
+import { getBanner, getKinds } from "../../service/home";
+import { getGoodsInfoByKind } from "../../service/goods";
+
+import GoodsCard from "../../components/card/goods/index";
+import style from "./index.module.less";
 
 export default class Index extends Component {
   state = {
