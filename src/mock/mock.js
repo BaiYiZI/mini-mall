@@ -83,6 +83,32 @@ module.exports = () => {
       { kind: "食品酒饮", children: ["休闲食品", "乳饮冰品", "咖啡", "果汁"] },
       { kind: "箱包", children: ["功能箱包", "潮流女包"] }
     ],
+    goodsDetailInfo: [
+      {
+        id:"100005",
+        kind: "肉禽蛋",
+        title: "风干牛肉 舌尖上的草原味道",
+        stock: "10086",
+        create_time: "2022-06-03",
+        imgs: [
+          "https://cdn.nlark.com/yuque/0/2021/jpeg/158634/1640790568336-assets/web-upload/11d570d5-5598-476d-bbe7-84c5ddcad354.jpeg",
+          "https://cdn.nlark.com/yuque/0/2021/jpeg/158634/1640790568531-assets/web-upload/093def87-41f2-4c88-be58-ce32f134ccc1.jpeg",
+          "https://cdn.nlark.com/yuque/0/2021/jpeg/158634/1640790568443-assets/web-upload/594acd78-348a-4b79-a44c-9e5199c8a154.jpeg",
+          "https://cdn.nlark.com/yuque/0/2021/jpeg/158634/1640790568432-assets/web-upload/dd976bea-64c5-4875-bdd6-a6e5e11812ae.jpeg",
+        ],
+        price: "28.8",
+        detail_imgs: [
+          "https://cdn.nlark.com/yuque/0/2021/jpeg/158634/1640790568470-assets/web-upload/615b683f-7ae5-4c77-991c-3158db8633b5.jpeg",
+          "https://cdn.nlark.com/yuque/0/2021/jpeg/158634/1640790568115-assets/web-upload/c3b84b95-f494-47d5-8913-3a6d7cd32c37.jpeg",
+          "https://cdn.nlark.com/yuque/0/2021/jpeg/158634/1640790568437-assets/web-upload/4af4530f-8f43-4dfd-940a-37006afb41dd.jpeg",
+          "https://cdn.nlark.com/yuque/0/2021/jpeg/158634/1640790568430-assets/web-upload/c0147b0e-d757-4126-8840-267ba41731bb.jpeg",
+          "https://cdn.nlark.com/yuque/0/2021/jpeg/158634/1640790568490-assets/web-upload/52e0ce8e-844b-4a03-b02b-489d3b5f0b18.jpeg",
+          "https://cdn.nlark.com/yuque/0/2021/jpeg/158634/1640790568450-assets/web-upload/df170d74-b28e-403f-9749-57fd5ed03425.jpeg",
+          "https://cdn.nlark.com/yuque/0/2021/jpeg/158634/1640790568297-assets/web-upload/3cc61d8d-09f5-4db3-824d-2ce0b5b389ce.jpeg",
+          "https://cdn.nlark.com/yuque/0/2021/jpeg/158634/1640790568410-assets/web-upload/dbab8671-d57b-447c-bb11-689520fd460a.jpeg",
+        ]
+      },
+    ]
   });
 
   return data;
