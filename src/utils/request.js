@@ -37,11 +37,13 @@ export default async (url, payload = {}, method = "GET") => {
         });
       }
     },
-    fail: () => {
+    fail: err => {
       Taro.showToast({
         title: "请求失败",
         icon: "error"
       });
+
+      return err;
     }
   });
 };
