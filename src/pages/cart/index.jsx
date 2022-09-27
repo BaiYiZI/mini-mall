@@ -66,8 +66,15 @@ export default class Index extends Component {
     });
   }
 
-  settlement() {
-    console.log(this.state.cardData);
+  settlementAndRemove() {
+    if (!this.state.topText) {
+      const array = this.state.cardData.filter(e => e.select === false);
+      this.state.cardData = array;
+      this.setState({ topText: false, bottomeCircle: false });
+    } else {
+      console.log("结算");
+      console.log(this.state.cardData);
+    }
   }
 
   setBottomeCircle(value) {
@@ -139,7 +146,7 @@ export default class Index extends Component {
         <View className={style["pages-cart-bottom-settlement-right"]}>
           <Button
             className={style["pages-cart-bottom-settlement-right-button"]}
-            onClick={this.settlement.bind(this)}
+            onClick={this.settlementAndRemove.bind(this)}
           >
             {this.state.topText === true ? "结算" : "删除"}
           </Button>
