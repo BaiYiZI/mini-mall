@@ -1,5 +1,7 @@
+import Taro from "@tarojs/taro";
 import { Component } from "react";
 import { View, Text, Button } from "@tarojs/components";
+import { getShoppings } from "../../service/cart";
 import ShoppingGoodsCard from "../../components/card/cart-goods";
 import style from "./index.module.less";
 
@@ -7,11 +9,55 @@ export default class Index extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      number: 10,
       loading: true,
       topText: true,
-      bottomeCircle: false
+      bottomeCircle: false,
+      cardData: new Array()
     };
+  }
+
+  componentDidMount() {
+    this.loading();
+  }
+
+  // async onPullDownRefresh() {
+  //   Taro.startPullDownRefresh();
+  //   this.setState({
+  //     loading: true
+  //   });
+  //   await this.loading();
+  //   Taro.stopPullDownRefresh();
+  // }
+
+  async loading() {
+    Taro.showLoading({
+      title: "Loading"
+    });
+
+    let arr = new Array();
+
+    let shoppingInfos = await getShoppings();
+
+    for (let temp of shoppingInfos.data) {
+      arr.push({
+        id: temp.id,
+        img: temp.img,
+        kind: temp.kind,
+        number: temp.number,
+        price: temp.price,
+        title: temp.title,
+        select: false
+      });
+    }
+
+    this.setState({
+      loading: true,
+      topText: true,
+      bottomeCircle: false,
+      cardData: arr
+    });
+
+    Taro.hideLoading();
   }
 
   reverse(stateName) {
@@ -21,10 +67,11 @@ export default class Index extends Component {
   }
 
   settlement() {
-    console.log("结算");
+    console.log(this.state.cardData);
   }
 
   setBottomeCircle(value) {
+    this.state.cardData.map(val => (val.select = !this.state.bottomeCircle));
     this.reverse(value);
     console.log("全选");
   }
@@ -84,19 +131,38 @@ export default class Index extends Component {
     return (
       <View className={style["pages-cart"]}>
         {cartTop}
-        <ShoppingGoodsCard
-          circle={this.circle}
-          circleClick={value => console.log(`当前状态：${value}`)}
-          stepperClick={value => this.setState({ number: value })}
-          title={"这是一个商品标题"}
-          src={"https://img.yzcdn.cn/vant/cat.jpeg"}
-          details={"这是一个商品规格"}
-          price={890 * this.state.number}
-          picker={true}
-          stepper={true}
-          number={this.state.number}
-        />
+        {this.state.cardData.map(val => {
+          const isBelowThreshold = currentValue => currentValue === true;
+          return (
+            <ShoppingGoodsCard
+              circle={val.select}
+              circleClick={value => {
+                val.select = !value;
+                // this.setState({});
+                if (
+                  this.state.cardData.map(a => a.select).every(isBelowThreshold)
+                ) {
+                  this.setState({ bottomeCircle: true });
+                } else {
+                  this.setState({ bottomeCircle: false });
+                }
+              }}
+              stepperClick={value => {
+                val.number = value;
+                this.setState({});
+              }}
+              title={val.title}
+              src={val.img}
+              details={val.kind}
+              number={val.number}
+              price={val.price * val.number}
+              picker={true}
+              stepper={true}
+            />
+          );
+        })}
         {cartSettlement}
+        <View className={style["pages-cart-bottom-Placeholder"]}></View>
       </View>
     );
   }
