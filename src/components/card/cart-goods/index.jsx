@@ -80,21 +80,23 @@ export default class ShoppingGoodsCard extends Component {
             </View>
           </View>
           <View className={style["components-cart-goods-right-price"]}>
-            <Text
-              className={[
-                style["components-cart-goods-right-price-symbol"],
-                style["p-price"]
-              ]}
-            >
-              ¥
-            </Text>
-            <Text
-              className={[
-                style["components-cart-goods-right-price-number"],
-                style["p-price"]
-              ]}
-            >
-              {number === undefined ? 0 : price}
+            <Text className={style["components-cart-goods-right-price-right"]}>
+              <Text
+                className={[
+                  style["components-cart-goods-right-price-symbol"],
+                  style["p-price"]
+                ]}
+              >
+                ¥
+              </Text>
+              <Text
+                className={[
+                  style["components-cart-goods-right-price-number"],
+                  style["p-price"]
+                ]}
+              >
+                {number === undefined ? 0 : price}
+              </Text>
             </Text>
             {stepper === true ? (
               <Stepper

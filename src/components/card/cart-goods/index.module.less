@@ -77,34 +77,31 @@
 
 .components-cart-goods-right-price{
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
     width: 92%;
     height: 30%;
     margin-left: @margin-normal;
 }
 
-.components-cart-goods-right-price-symbol {
+.components-cart-goods-right-price-right {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: row;;
+    height: 100%;
 }
 
+// .components-cart-goods-right-price-symbol { }
+
 .components-cart-goods-right-price-number {
-    display: flex;
-    flex-direction: column-reverse;
     margin-left: @margin-min;
 }
 
-.components-cart-goods-right-price-Stepper {
-    position: absolute;
-    right: @margin-big;
-}
+// .components-cart-goods-right-price-Stepper { }
 
 .components-cart-goods-right-goods-number {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    right: @margin-big;
     height: 5vh;
     width: 5vh;
     border: solid;
