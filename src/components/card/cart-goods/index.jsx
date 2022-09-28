@@ -27,10 +27,16 @@ export default class ShoppingGoodsCard extends Component {
       price,
       picker,
       stepper,
+      margin,
       number
     } = this.props;
     return (
-      <View className={style["components-cart-goods"]}>
+      <View
+        className={[
+          style["components-cart-goods"],
+          margin === false ? style[""] : style["components-cart-goods-margin"]
+        ]}
+      >
         {picker && (
           <View
             className={style["components-cart-goods-left"]}

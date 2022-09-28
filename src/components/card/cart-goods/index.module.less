@@ -4,14 +4,17 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: auto;
-    height: 18vh;
+    width: calc(100vw - @margin-normal * 2);
+    min-height: 18vh;
+    border-radius: @border-radius-normal;
+    background-color: @white;
+}
+
+.components-cart-goods-margin {
     margin-top: @margin-normal;
     margin-left: @margin-normal;
     margin-right: @margin-normal;
-    border-radius: @border-radius-normal;
     box-shadow: @shadown;
-    background-color: @white;
 }
 
 .components-cart-goods-left {
