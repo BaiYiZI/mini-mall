@@ -13,6 +13,11 @@ export default defineAppConfig({
     "pages/detail/logistics/index",
     "pages/detail/order/index"
   ],
+  requiredPrivateInfos: [
+    "getFuzzyLocation",
+    "choosePoi",
+    "chooseAddress"
+  ],
   window: {
     backgroundTextStyle: "light",
     navigationBarBackgroundColor: "#F42121",
