@@ -10,6 +10,7 @@ export default class Index extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            top: false,
             price: 800000,
             addressInfo: {
                 userName: "",
@@ -33,10 +34,46 @@ export default class Index extends Component {
                 console.log(err)
             }
         })
+        this.setState({ top: true })
     }
 
     render() {
         const { price } = this.state;
+        const top = (
+            <View className={style["address"]}>
+                <View className={style["location"]}>
+                    <LocationOutlined size={"24"} className={style["loc-icons"]} />
+                    <Text className={style["Approximate-location"]}>
+                        {this.state.addressInfo.provinceName}
+                        {this.state.addressInfo.cityName}
+                        {this.state.addressInfo.countyName}
+                    </Text>
+                </View>
+                <>
+                    <View className={style["shipping-address"]}>
+                        <Text>
+                            收货地址：
+                            <Text className={style["details"]}>{this.state.addressInfo.detailInfo}</Text>
+                        </Text>
+                    </View>
+                    <View className={style["consignee"]}>
+                        <Text>收货人：<Text className={style["details"]}>{this.state.addressInfo.userName}</Text></Text>
+                    </View>
+                    <View className={style["Mobile-Phone"]}>
+                        <Text>手机号码：<Text className={style["details"]}>{this.state.addressInfo.telNumber}</Text></Text>
+                    </View>
+                </>
+            </View>
+        )
+
+        const isNull = (
+            <View className={style["address"]}>
+                <View className={style["not-state"]}>
+                    <Text>点击当前卡片获取地址</Text>
+                </View>
+            </View>
+        )
+
         let current = [];
         for (let i = 1; i < 10; i++) {
             current.push(
@@ -54,38 +91,15 @@ export default class Index extends Component {
         return (
             <View className={style["page"]}>
                 <View className={style["vCard"]}
-                    onClick={this.chooseAddress.bind(this)}>
+                    onClick={this.chooseAddress.bind(this)}
+                >
                     <View className={style["title"]}>
                         <Text className={style["word"]}>
                             订单地址
                         </Text>
                     </View>
-                    <View className={style["address"]}>
-                        <View className={style["location"]}>
-                            <LocationOutlined size={"24"} className={style["loc-icons"]} />
-                            <Text className={style["Approximate-location"]}>
-                                {this.state.addressInfo.provinceName}
-                                {this.state.addressInfo.cityName}
-                                {this.state.addressInfo.countyName}
-                            </Text>
-                        </View>
-                        <>
-                            <View className={style["shipping-address"]}>
-                                <Text>
-                                    收货地址：
-                                    <Text className={style["details"]}>{this.state.addressInfo.detailInfo}</Text>
-                                </Text>
-                            </View>
-                            <View className={style["consignee"]}>
-                                <Text>收货人：<Text className={style["details"]}>{this.state.addressInfo.userName}</Text></Text>
-                            </View>
-                            <View className={style["Mobile-Phone"]}>
-                                <Text>手机号码：<Text className={style["details"]}>{this.state.addressInfo.telNumber}</Text></Text>
-                            </View>
-                        </>
-                    </View>
+                    {this.state.top == false ? isNull : top}
                 </View>
-
                 <View className={style["quantity"]}>
                     <Text>商品</Text>
                 </View>
@@ -94,7 +108,7 @@ export default class Index extends Component {
 
                 <View className={style["frame"]}>
                     <View className={style["prompt"]}>
-                        <Checked size="30px" color="green" />
+                        <Checked size="30px" color="green" className={style["p-Checked"]} />
                         <Text className={style["p-prompt"]}>如您购买的商品有任何问题，请与客服联系，门店会为您处理，让您售后无忧</Text>
                     </View>
                 </View>
