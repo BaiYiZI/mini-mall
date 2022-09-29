@@ -1,12 +1,14 @@
-// import Taro from "@tarojs/taro";
+import Taro from "@tarojs/taro";
 import { Component } from "react";
-import { View, Text } from "@tarojs/components";
+import { View, Text, Button } from "@tarojs/components";
 import { Avatar } from "@taroify/core";
 import {
   LabelOutlined,
   BagOutlined,
   Passed,
-  ServiceOutlined
+  ServiceOutlined,
+  MapMarked,
+  Arrow
 } from "@taroify/icons";
 import ShoppingGoodsCard from "../../components/card/cart-goods";
 import UserOrderCart from "../../components/card/order-card";
@@ -17,41 +19,98 @@ export default class Index extends Component {
     super(props);
   }
 
+  addressAdministrationFuc() {
+    Taro.chooseAddress({
+      success: function(res) {
+        console.log(res.userName);
+        console.log(res.postalCode);
+        console.log(res.provinceName);
+        console.log(res.cityName);
+        console.log(res.countyName);
+        console.log(res.detailInfo);
+        console.log(res.nationalCode);
+        console.log(res.telNumber);
+      }
+    });
+  }
+
+  goShoppingFuc() {
+    console.log("去购物");
+  }
+
   render() {
-    return (
-      <View className={style["pages-user"]}>
-        <View className={style["pages-user-top"]}>
-          <View className={style["pages-user-top-top"]}>
-            <Avatar size="large" style={{ background: "pink" }}>
-              HP
-            </Avatar>
-            <Text className={style["pages-user-top-top-text"]}>王富贵</Text>
+    const userTop = (
+      <View className={style["pages-user-top"]}>
+        <View className={style["pages-user-top-top"]}>
+          <Avatar size="large" className={style["pages-user-top-top-avatar"]}>
+            HP
+          </Avatar>
+          <Text className={style["pages-user-top-top-text"]}>王富贵</Text>
+        </View>
+        <View className={style["pages-user-top-bottom"]}>
+          <View className={style["pages-user-top-bottom-icon"]}>
+            <LabelOutlined size="28" />
+            <Text className={style["pages-user-top-bottom-text"]}>
+              全部订单
+            </Text>
           </View>
-          <View className={style["pages-user-top-bottom"]}>
-            <View className={style["pages-user-top-bottom-icon"]}>
-              <LabelOutlined size="28" />
-              <Text className={style["pages-user-top-bottom-text"]}>
-                全部订单
-              </Text>
-            </View>
-            <View className={style["pages-user-top-bottom-icon"]}>
-              <BagOutlined size="28" />
-              <Text className={style["pages-user-top-bottom-text"]}>
-                待收货
-              </Text>
-            </View>
-            <View className={style["pages-user-top-bottom-icon"]}>
-              <Passed size="28" />
-              <Text className={style["pages-user-top-bottom-text"]}>
-                已收货
-              </Text>
-            </View>
-            <View className={style["pages-user-top-bottom-icon"]}>
-              <ServiceOutlined size="28" />
-              <Text className={style["pages-user-top-bottom-text"]}>客服</Text>
-            </View>
+          <View className={style["pages-user-top-bottom-icon"]}>
+            <BagOutlined size="28" />
+            <Text className={style["pages-user-top-bottom-text"]}>待收货</Text>
+          </View>
+          <View className={style["pages-user-top-bottom-icon"]}>
+            <Passed size="28" />
+            <Text className={style["pages-user-top-bottom-text"]}>已收货</Text>
+          </View>
+          <View className={style["pages-user-top-bottom-icon"]}>
+            <ServiceOutlined size="28" />
+            <Text className={style["pages-user-top-bottom-text"]}>客服</Text>
           </View>
         </View>
+      </View>
+    );
+    const addressAdministration = (
+      <View
+        className={style["pages-user-addressAdministration"]}
+        onClick={this.addressAdministrationFuc.bind(this)}
+      >
+        <View className={style["pages-user-addressAdministration-middle"]}>
+          <View
+            className={style["pages-user-addressAdministration-middle-left"]}
+          >
+            <MapMarked
+              className={
+                style["pages-user-addressAdministration-middle-left-icon"]
+              }
+            />
+            <Text
+              className={
+                style["pages-user-addressAdministration-middle-left-text"]
+              }
+            >
+              地址管理
+            </Text>
+          </View>
+          <View
+            className={style["pages-user-addressAdministration-middle-right"]}
+          >
+            <Arrow />
+          </View>
+        </View>
+      </View>
+    );
+    const bottomButton = (
+      <Button
+        className={style["pages-user-settlement"]}
+        onClick={this.goShoppingFuc.bind(this)}
+      >
+        去购物
+      </Button>
+    );
+    return (
+      <View className={style["pages-user"]}>
+        {userTop}
+        {addressAdministration}
         <UserOrderCart
           date={"2022-09-19"}
           logistics={"这是一条物流信息"}
@@ -73,6 +132,7 @@ export default class Index extends Component {
             </>
           }
         ></UserOrderCart>
+        {bottomButton}
       </View>
     );
   }

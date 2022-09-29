@@ -26,6 +26,11 @@
     border-bottom-right-radius: @border-radius-big;
 }
 
+.pages-user-top-top-avatar {
+    margin-top: @margin-normal;
+    background-color: pink;
+}
+
 .pages-user-top-top-text {
     color: white;
     margin-top: 1vh;
@@ -51,4 +56,60 @@
 
 .pages-user-top-bottom-text {
     margin-top: 8px;
+}
+
+.pages-user-addressAdministration{
+    width: calc(100vw - @margin-big * 2);
+    height: 8vh;
+    margin: @margin-big;
+    border-radius: @border-radius-normal;
+    box-shadow: @shadown;
+    background-color: @white;
+}
+
+.pages-user-addressAdministration :active{
+    border-radius: @border-radius-normal;
+    background-color: @ashen;
+    opacity: 0.2;
+}
+
+.pages-user-addressAdministration-middle {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100vw - @margin-big * 2);
+    height: 8vh;
+}
+
+.pages-user-addressAdministration-middle-left {
+    display: flex;
+    align-items: center;
+    margin-left: @margin-big;
+}
+
+.pages-user-addressAdministration-middle-left-icon {
+    color: @main-color;
+}
+
+.pages-user-addressAdministration-middle-left-text {
+    margin-left: @margin-normal;
+}
+
+.pages-user-addressAdministration-middle-right {
+    display: flex;
+    align-items: center;
+    margin-right: @margin-big;
+}
+
+.pages-user-settlement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42vw;
+    height: 5.5vh;
+    margin-left:  calc((100vw - 42vw) / 2);
+    margin-right:  calc((100vw - 42vw) / 2);
+    margin-top:  @margin-big;
+    border-radius: @border-radius-big;
+    color: @white;
+    background-color: @main-color;
 }
