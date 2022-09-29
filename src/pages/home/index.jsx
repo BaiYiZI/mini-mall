@@ -13,8 +13,7 @@ import {
   Empty
 } from "@taroify/core";
 
-import { getBanner, getKinds } from "../../service/home";
-import { getGoodsInfoByKind } from "../../service/goods";
+import { getBanner, getKinds, getGoodsInfoByKind } from "../../service/service";
 
 import GoodsCard from "../../components/card/goods/index";
 import style from "./index.module.less";

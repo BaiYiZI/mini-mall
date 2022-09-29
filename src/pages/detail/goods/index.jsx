@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Taro, { getCurrentInstance } from "@tarojs/taro";
-import { View, Text } from "@tarojs/components";
+import { View } from "@tarojs/components";
 import {
   Image,
   Flex,
@@ -15,7 +15,7 @@ import {
 } from "@taroify/core";
 import { CartOutlined, ChatOutlined, ShopOutlined } from "@taroify/icons";
 
-import { getGoodsDteailInfoById } from "../../../service/goods";
+import { getGoodsDteailInfoById } from "../../../service/service";
 import style from "./index.module.less";
 export default class Index extends Component {
   state = {
@@ -52,7 +52,6 @@ export default class Index extends Component {
       title: "Loading"
     });
 
-    let res = {};
     let id = this.current.router.params.goodsId;
     let testingId = "100005";
 
@@ -62,7 +61,7 @@ export default class Index extends Component {
     });
 
     try {
-      res = await getGoodsDteailInfoById(testingId);
+      let res = await getGoodsDteailInfoById(testingId);
       this.setState({
         goodsDetailInfo: res.data[0],
         loading: false

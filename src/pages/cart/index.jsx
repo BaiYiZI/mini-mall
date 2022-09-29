@@ -1,7 +1,7 @@
 import Taro from "@tarojs/taro";
 import { Component } from "react";
 import { View, Text, Button } from "@tarojs/components";
-import { getShoppings } from "../../service/cart";
+import { getShoppings } from "../../service/service";
 import ShoppingGoodsCard from "../../components/card/cart-goods";
 import style from "./index.module.less";
 

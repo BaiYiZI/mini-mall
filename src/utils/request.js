@@ -1,10 +1,10 @@
 import Taro from "@tarojs/taro";
-import { BaseUrl, OnConsole } from "../config/service";
+import { BaseUrl, Dev } from "../config/api";
 
 export default async (url, payload = {}, method = "GET") => {
   const Dest = BaseUrl + url;
 
-  if (OnConsole) {
+  if (Dev) {
     console.log(
       `${new Date().toLocaleString()} dest: ${Dest} data: ${JSON.stringify(
         payload
@@ -23,7 +23,7 @@ export default async (url, payload = {}, method = "GET") => {
       const { statusCode, data } = res;
 
       if (statusCode == 200) {
-        if (OnConsole) {
+        if (Dev) {
           console.log(
             `${new Date().toLocaleString()} dest: ${Dest} res: ${JSON.stringify(
               data
