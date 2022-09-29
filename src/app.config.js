@@ -13,6 +13,7 @@ export default defineAppConfig({
     "pages/detail/logistics/index",
     "pages/detail/order/index"
   ],
+  requiredPrivateInfos: ["chooseAddress"],
   window: {
     backgroundTextStyle: "light",
     navigationBarBackgroundColor: "#F42121",

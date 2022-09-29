@@ -27,10 +27,16 @@ export default class ShoppingGoodsCard extends Component {
       price,
       picker,
       stepper,
+      margin,
       number
     } = this.props;
     return (
-      <View className={style["components-cart-goods"]}>
+      <View
+        className={[
+          style["components-cart-goods"],
+          margin === false ? style[""] : style["components-cart-goods-margin"]
+        ]}
+      >
         {picker && (
           <View
             className={style["components-cart-goods-left"]}
@@ -59,7 +65,13 @@ export default class ShoppingGoodsCard extends Component {
             src={src}
           />
         </View>
-        <View className={style["components-cart-goods-right"]}>
+        <View
+          className={
+            picker === true
+              ? style["components-cart-goods-right"]
+              : style["components-cart-goods-right-length"]
+          }
+        >
           <View className={style["components-cart-goods-right-details"]}>
             <Text
               className={[
@@ -74,21 +86,23 @@ export default class ShoppingGoodsCard extends Component {
             </View>
           </View>
           <View className={style["components-cart-goods-right-price"]}>
-            <Text
-              className={[
-                style["components-cart-goods-right-price-symbol"],
-                style["p-price"]
-              ]}
-            >
-              ¥
-            </Text>
-            <Text
-              className={[
-                style["components-cart-goods-right-price-number"],
-                style["p-price"]
-              ]}
-            >
-              {number === undefined ? 0 : price}
+            <Text className={style["components-cart-goods-right-price-right"]}>
+              <Text
+                className={[
+                  style["components-cart-goods-right-price-symbol"],
+                  style["p-price"]
+                ]}
+              >
+                ¥
+              </Text>
+              <Text
+                className={[
+                  style["components-cart-goods-right-price-number"],
+                  style["p-price"]
+                ]}
+              >
+                {number === undefined ? 0 : price}
+              </Text>
             </Text>
             {stepper === true ? (
               <Stepper

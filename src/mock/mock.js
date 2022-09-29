@@ -217,7 +217,7 @@ module.exports = () => {
         img:
           "https://cdn.nlark.com/yuque/0/2022/jpeg/660331/1663758299139-assets/web-upload/894f4db6-09c0-44a4-9af3-276e7c1e88d9.jpeg",
         price: "37.6",
-        number: "9999999"
+        number: "999"
       },
       {
         id: "1000015",
