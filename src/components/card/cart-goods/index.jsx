@@ -65,7 +65,13 @@ export default class ShoppingGoodsCard extends Component {
             src={src}
           />
         </View>
-        <View className={style["components-cart-goods-right"]}>
+        <View
+          className={
+            picker === true
+              ? style["components-cart-goods-right"]
+              : style["components-cart-goods-right-length"]
+          }
+        >
           <View className={style["components-cart-goods-right-details"]}>
             <Text
               className={[
