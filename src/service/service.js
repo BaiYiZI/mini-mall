@@ -1,5 +1,6 @@
 import requset from "../utils/request";
 import pay from "../utils/pay";
+import check from "../utils/login";
 import { Api } from "../config/api";
 
 // home page
@@ -20,6 +21,11 @@ export async function getGoodsInfoByKind(kind) {
 export async function getGoodsDteailInfoById(id) {
   let url = Api.goodsDteailInfo + "?id=" + id;
   return requset(url);
+}
+
+// login
+export async function checkLogin() {
+  return check(Api.login)
 }
 
 // cart page
