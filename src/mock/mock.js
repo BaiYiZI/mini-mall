@@ -225,7 +225,7 @@ module.exports = () => {
         title: "夹心豆卷 精挑细选 香味十足",
         img:
           "https://cdn.nlark.com/yuque/0/2022/jpeg/660331/1663758458286-assets/web-upload/b350857d-c9e3-4d9e-9ba6-0f81194b79d0.jpeg",
-        price: "61452568.6",
+        price: "9.6",
         number: "17"
       }
     ]
