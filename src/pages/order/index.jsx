@@ -1,10 +1,11 @@
 import { Component } from "react";
 import Taro from "@tarojs/taro";
 import { View, Text } from "@tarojs/components";
-import { Tabs, Search, Button } from "@taroify/core";
+import { Tabs, Search } from "@taroify/core";
 
 import { getOrder } from "../../service/service";
 import ShoppingGoodsCard from "../../components/card/cart-goods/index";
+import UserOrderCart from "../../components/card/order-card";
 import style from "./index.module.less";
 
 export default class Index extends Component {
@@ -12,25 +13,6 @@ export default class Index extends Component {
     loading: true,
     orderAll: new Array()
   };
-
-  clickChange() {
-    let result = [
-      {
-        orderState: 1
-      },
-      {
-        orderState: 1
-      }
-    ];
-
-    try {
-      this.setState({
-        orderAll: result,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   componentDidMount() {
     this.loading();
@@ -68,10 +50,6 @@ export default class Index extends Component {
             placeholder="请输入搜索关键词" />
         </View>
 
-        <View>
-          <Button color="success" onClick={this.clickChange.bind(this)}>button</Button>
-        </View>
-
         <View style={{ backgroundColor: "aqua" }}>
           <Tabs animated swipeable className={style["color"]}>
             <Tabs.TabPane title="全部">
@@ -94,13 +72,43 @@ export default class Index extends Component {
                 this.state.orderAll.map(val => {
                   if (val.orderState == 1) {
                     return (
-                      <ShoppingGoodsCard
-                        title={1}
-                        src={"https://img.yzcdn.cn/vant/cat.jpeg"}
-                        details={"这是一个商品规格"}
+                      <UserOrderCart
+                        date={"2022-09-19"}
+                        logistics={"这是一条物流信息"}
                         price={890}
-                        number={10}
-                      ></ShoppingGoodsCard>
+                        order={"10"}
+                        childrens={
+                          <>
+                            <ShoppingGoodsCard
+                              title={"这是一个商品标题"}
+                              src={"https://img.yzcdn.cn/vant/cat.jpeg"}
+                              details={"这是一个商品规格"}
+                              price={7.9}
+                              number={10}
+                              stepper={false}
+                              margin={false}
+                            />
+                             <ShoppingGoodsCard
+                              title={"这是一个商品标题"}
+                              src={"https://img.yzcdn.cn/vant/cat.jpeg"}
+                              details={"这是一个商品规格"}
+                              price={7.9}
+                              number={10}
+                              stepper={false}
+                              margin={false}
+                            />
+                             <ShoppingGoodsCard
+                              title={"这是一个商品标题"}
+                              src={"https://img.yzcdn.cn/vant/cat.jpeg"}
+                              details={"这是一个商品规格"}
+                              price={7.9}
+                              number={10}
+                              stepper={false}
+                              margin={false}
+                            />
+                          </>
+                        }
+                      ></UserOrderCart>
                     )
                   }
                 })

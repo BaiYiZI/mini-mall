@@ -228,6 +228,11 @@ module.exports = () => {
         price: "9.6",
         number: "17"
       }
+    ],
+    orderAll: [
+      {
+        orderState: 1
+      }
     ]
   });
 
