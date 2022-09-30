@@ -1,3 +1,4 @@
+import Taro from "@tarojs/taro";
 import { Component } from "react";
 import { View, Text, ScrollView } from "@tarojs/components";
 import { Tag } from "@taroify/core";
@@ -8,22 +9,22 @@ export default class UserOrderCart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      shadow: true,
-      shadowNumber: 0
+      shadow: true
     };
   }
 
-  onScrollToLower() {
-    if (this.state.shadow === true) {
-      this.setState({ shadow: false, shadowNumber: 0 });
-    }
+  onScrollToLowerFuc() {
+    this.setState({ shadow: false });
   }
 
-  onScroll() {
-    this.state.shadowNumber++;
-    if (this.state.shadow === false && this.state.shadowNumber > 10) {
-      this.setState({ shadow: true, shadowNumber: 0 });
-    }
+  onScrollToUpperFuc() {
+    this.setState({ shadow: true });
+  }
+
+  logisticsDetails() {
+    Taro.navigateTo({
+      url: "/pages/detail/logistics/index?id=1"
+    });
   }
 
   render() {
@@ -77,6 +78,7 @@ export default class UserOrderCart extends Component {
                 className={
                   style["components-order-card-top-middle-left-logistics"]
                 }
+                onClick={this.logisticsDetails.bind(this)}
               >
                 {logistics}
               </Text>
@@ -94,8 +96,8 @@ export default class UserOrderCart extends Component {
               ? style["components-order-card-move-min"]
               : style["components-order-card-move-max"]
           }
-          onScroll={this.onScroll.bind(this)}
-          onScrollToLower={this.onScrollToLower.bind(this)}
+          onScrollToUpper={this.onScrollToUpperFuc.bind(this)}
+          onScrollToLower={this.onScrollToLowerFuc.bind(this)}
         >
           {this.props.childrens}
         </ScrollView>
@@ -127,6 +129,7 @@ export default class UserOrderCart extends Component {
             </View>
             <View
               className={style["components-order-card-middle-middle-right"]}
+              onclick={this.logisticsDetails.bind(this)}
             >
               <Text
                 className={

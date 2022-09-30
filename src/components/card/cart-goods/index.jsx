@@ -1,3 +1,4 @@
+import Taro from "@tarojs/taro";
 import { Component } from "react";
 import { View, Text } from "@tarojs/components";
 import { Image, Stepper } from "@taroify/core";
@@ -16,6 +17,12 @@ export default class ShoppingGoodsCard extends Component {
   stepperEvent(value) {
     const { stepperClick } = this.props;
     stepperClick(value);
+  }
+
+  navigateToGoods() {
+    Taro.navigateTo({
+      url: "/pages/detail/goods/index?goodsId=" + this.props.key
+    });
   }
 
   render() {
@@ -63,6 +70,7 @@ export default class ShoppingGoodsCard extends Component {
           <Image
             className={style["components-cart-goods-middle-image"]}
             src={src}
+            onClick={this.navigateToGoods.bind(this)}
           />
         </View>
         <View
