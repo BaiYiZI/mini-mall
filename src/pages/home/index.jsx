@@ -97,9 +97,15 @@ export default class Index extends Component {
     });
   }
 
-  navigateTo(id) {
+  navigateToGoods(id) {
     Taro.navigateTo({
       url: "/pages/detail/goods/index?goodsId=" + id
+    });
+  }
+
+  navigateToCart(id) {
+    Taro.switchTab({
+      url: "/pages/cart/index?goodsId=" + id + "&count=1"
     });
   }
 
@@ -142,17 +148,46 @@ export default class Index extends Component {
           );
         });
 
-      goodsList = this.state.goodsInfo.map(item => {
-        return (
-          <GoodsCard
-            key={item.title}
-            title={item.title}
-            img={item.img}
-            price={item.price}
-            onClick={() => this.navigateTo(item.id)}
-          />
-        );
+      let leftList = [];
+      let rightList = [];
+      this.state.goodsInfo.forEach((item, index) => {
+        if (index % 2 == 0) {
+          leftList.push(
+            <GoodsCard
+              key={item.title}
+              title={item.title}
+              img={item.img}
+              price={item.price}
+              toGoods={() => this.navigateToGoods(item.id)}
+              toCart={() => this.navigateToCart(item.id)}
+              className={style["goods-card"]}
+            />
+          );
+        } else {
+          rightList.push(
+            <GoodsCard
+              key={item.title}
+              title={item.title}
+              img={item.img}
+              price={item.price}
+              toGoods={() => this.navigateToGoods(item.id)}
+              toCart={() => this.navigateToCart(item.id)}
+              className={style["goods-card"]}
+            />
+          );
+        }
       });
+
+      goodsList = (
+        <Flex direction="row" gutter="12">
+          <Flex.Item direction="column" span="12">
+              {leftList}
+          </Flex.Item>
+          <Flex.Item direction="column" span="12">
+              {rightList}
+          </Flex.Item>
+        </Flex>
+      );
     }
 
     let skeletons = [];
@@ -233,7 +268,9 @@ export default class Index extends Component {
                 </Space>
               </View>
             </Backdrop>
-            <View className={style["goods-list"]}>{goodsList}</View>
+            <View className={style["goods-list"]}>
+            {goodsList}
+            </View>
           </>
         )}
       </View>

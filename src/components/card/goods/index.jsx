@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Text } from "@tarojs/components";
+import { Text, View } from "@tarojs/components";
 
 import style from "./index.module.less";
 import { Flex, Image } from "@taroify/core";
@@ -17,41 +17,42 @@ export default class GoodsCard extends Component {
       <Flex
         direction="column"
         gutter="24"
-        className={style.root}
-        onClick={this.props.onClick}
+        className={[style.root, this.props.className]}
+        onClick={this.props.toGoods}
       >
-        <Flex.Item
+        <View
           justify="center"
           align="center"
-          span="24"
-          className={style.content}
+          className={style["image-content"]}
         >
           <Image
             src={this.state.img}
-            mode="center"
+            mode="widthFix"
             className={style.img}
             placeholder="加载中..."
             fallback="加载失败"
           />
-        </Flex.Item>
+        </View>
 
-        <Flex className={style.content}>
-          <Flex.Item span="22">
-            <Text className={style["p-title"]}>{this.state.title}</Text>
-          </Flex.Item>
-        </Flex>
+        <View className={style["title-box"]}>
+          <View className={style["title"]}>{this.state.title}</View>
+        </View>
 
         <Flex
           direction="row"
-          justify="space-between"
+          justify="space-around"
           align="center"
-          className={style.content}
+          className={style["price-box"]}
         >
-          <Flex.Item className={style["p-price"]} span="6">
+          <Flex.Item className={style["price"]} span="20">
             <Text>{"￥" + this.state.price}</Text>
           </Flex.Item>
 
-          <Flex.Item align="center" span="3" className={[style.testing]}>
+          <Flex.Item
+            span="4"
+            onClick={this.props.toCart}
+            className={style["cart-icon"]}
+          >
             <CartOutlined style={{ color: style["main-color"] }} size="24px" />
           </Flex.Item>
         </Flex>

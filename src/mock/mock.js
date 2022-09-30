@@ -94,7 +94,7 @@ module.exports = () => {
         title: "夹心豆卷 精挑细选 香味十足",
         img:
           "https://cdn.nlark.com/yuque/0/2022/jpeg/660331/1663758458286-assets/web-upload/b350857d-c9e3-4d9e-9ba6-0f81194b79d0.jpeg",
-        price: "37.6"
+        price: "61452568.6"
       }
     ],
     kinds: [
@@ -150,7 +150,7 @@ module.exports = () => {
       {
         id: "100007",
         kind: "水果",
-        title: "新疆哈密瓜 脆甜多汁",
+        title: "新疆哈密瓜 脆甜多汁汁汁汁汁",
         img:
           "https://cdn.nlark.com/yuque/0/2021/jpeg/1267472/1640790535498-assets/web-upload/264d00b6-2134-4b18-b6d8-ce7133ac9509.jpeg",
         price: "36.6",
@@ -225,7 +225,7 @@ module.exports = () => {
         title: "夹心豆卷 精挑细选 香味十足",
         img:
           "https://cdn.nlark.com/yuque/0/2022/jpeg/660331/1663758458286-assets/web-upload/b350857d-c9e3-4d9e-9ba6-0f81194b79d0.jpeg",
-        price: "37.6",
+        price: "61452568.6",
         number: "17"
       }
     ]
