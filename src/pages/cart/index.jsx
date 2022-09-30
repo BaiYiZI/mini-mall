@@ -161,10 +161,10 @@ export default class Index extends Component {
           const isBelowThreshold = currentValue => currentValue === true;
           return (
             <ShoppingGoodsCard
+              key={val.id}
               circle={val.select}
               circleClick={value => {
                 val.select = !value;
-                // this.setState({});
                 if (
                   this.state.cardData.map(a => a.select).every(isBelowThreshold)
                 ) {

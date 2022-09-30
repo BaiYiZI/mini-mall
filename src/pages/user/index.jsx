@@ -21,21 +21,16 @@ export default class Index extends Component {
 
   addressAdministrationFuc() {
     Taro.chooseAddress({
-      success: function(res) {
+      fail: function(res) {
         console.log(res.userName);
-        console.log(res.postalCode);
-        console.log(res.provinceName);
-        console.log(res.cityName);
-        console.log(res.countyName);
-        console.log(res.detailInfo);
-        console.log(res.nationalCode);
-        console.log(res.telNumber);
       }
     });
   }
 
   goShoppingFuc() {
-    console.log("去购物");
+    Taro.switchTab({
+      url: "/pages/home/index"
+    });
   }
 
   render() {
@@ -118,6 +113,39 @@ export default class Index extends Component {
           order={"10"}
           childrens={
             <>
+              <ShoppingGoodsCard
+                title={"这是一个商品标题"}
+                src={"https://img.yzcdn.cn/vant/cat.jpeg"}
+                details={"这是一个商品规格"}
+                circleClick={value => console.log(`当前状态：${value}`)}
+                stepperClick={value => console.log(`当前值：${value}`)}
+                price={7.9}
+                number={10}
+                stepper={false}
+                margin={false}
+              />
+              <ShoppingGoodsCard
+                title={"这是一个商品标题"}
+                src={"https://img.yzcdn.cn/vant/cat.jpeg"}
+                details={"这是一个商品规格"}
+                circleClick={value => console.log(`当前状态：${value}`)}
+                stepperClick={value => console.log(`当前值：${value}`)}
+                price={7.9}
+                number={10}
+                stepper={false}
+                margin={false}
+              />
+              <ShoppingGoodsCard
+                title={"这是一个商品标题"}
+                src={"https://img.yzcdn.cn/vant/cat.jpeg"}
+                details={"这是一个商品规格"}
+                circleClick={value => console.log(`当前状态：${value}`)}
+                stepperClick={value => console.log(`当前值：${value}`)}
+                price={7.9}
+                number={10}
+                stepper={false}
+                margin={false}
+              />
               <ShoppingGoodsCard
                 title={"这是一个商品标题"}
                 src={"https://img.yzcdn.cn/vant/cat.jpeg"}
