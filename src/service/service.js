@@ -37,3 +37,8 @@ export async function getShoppings() {
 export async function buy(data) {
   await pay(Api.pay, data);
 }
+
+// order all
+export async function getOrder() {
+  return requset(Api.orderAll);
+}
