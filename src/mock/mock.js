@@ -231,7 +231,49 @@ module.exports = () => {
     ],
     orderAll: [
       {
-        orderState: 1
+        id: "10000001",
+        status: 1,
+        totalPrice: 100,
+        products: [
+          {
+            id: "789123",
+            mainTitle: "main title",
+            spec: "spec",
+            price: 100,
+            photo_urls: "",
+            quantity: 20
+          }
+        ],
+      },
+      {
+        id: "10000002",
+        status: 2,
+        totalPrice: 100,
+        products: [
+          {
+            id: "789123",
+            mainTitle: "main title",
+            spec: "spec",
+            price: 100,
+            photo_urls: "",
+            quantity: 20
+          }
+        ],
+      },
+      {
+        id: "10000003",
+        status: 1,
+        totalPrice: 100,
+        products: [
+          {
+            id: "789123",
+            mainTitle: "main title",
+            spec: "spec",
+            price: 100,
+            photo_urls: "",
+            quantity: 20
+          }
+        ],
       }
     ]
   });

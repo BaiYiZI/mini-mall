@@ -25,6 +25,9 @@ export default class Index extends Component {
 
     try {
       let result = await getOrder();
+      console.log("----------");
+      console.log(result.data);
+      console.log("----------");
       this.setState({
         orderAll: result.data,
       });
@@ -56,13 +59,43 @@ export default class Index extends Component {
               {
                 this.state.orderAll.map(val => {
                   return (
-                    <ShoppingGoodsCard
-                      title={"all"}
-                      src={"https://img.yzcdn.cn/vant/cat.jpeg"}
-                      details={"这是一个商品规格"}
+                    <UserOrderCart
+                      date={"2022-09-19"}
+                      logistics={"这是一条物流信息"}
                       price={890}
-                      number={10}
-                    ></ShoppingGoodsCard>
+                      order={"10"}
+                      childrens={
+                        <>
+                          <ShoppingGoodsCard
+                            title={"这是一个商品标题"}
+                            src={"https://img.yzcdn.cn/vant/cat.jpeg"}
+                            details={"这是一个商品规格"}
+                            price={7.9}
+                            number={10}
+                            stepper={false}
+                            margin={false}
+                          />
+                           <ShoppingGoodsCard
+                            title={"这是一个商品标题"}
+                            src={"https://img.yzcdn.cn/vant/cat.jpeg"}
+                            details={"这是一个商品规格"}
+                            price={7.9}
+                            number={10}
+                            stepper={false}
+                            margin={false}
+                          />
+                           <ShoppingGoodsCard
+                            title={"这是一个商品标题"}
+                            src={"https://img.yzcdn.cn/vant/cat.jpeg"}
+                            details={"这是一个商品规格"}
+                            price={7.9}
+                            number={10}
+                            stepper={false}
+                            margin={false}
+                          />
+                        </>
+                      }
+                    ></UserOrderCart>
                   )
                 })
               }
@@ -134,7 +167,6 @@ export default class Index extends Component {
           </Tabs>
         </View>
       </View>
-
     )
   }
 }
